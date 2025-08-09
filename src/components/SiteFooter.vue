@@ -6,8 +6,12 @@
   </footer>
 </template>
 
-<style scoped>
-.site-footer{margin-top:40px;border-top:1px solid #eee;background:#fafafa}
-.site-footer__container{max-width:1200px;margin:0 auto;padding:20px}
-.site-footer__text{margin:0;color:#666;font-size:14px}
+<style lang="scss" scoped>
+@use '../styles/variables' as *;
+
+.site-footer {
+  margin-top:40px; border-top:1px solid $color-border; background:#fafafa;
+  &__container { max-width:$container-max; margin:0 auto; padding:$space-6; }
+  &__text { margin:0; color:$color-muted; font-size:14px; }
+}
 </style> 

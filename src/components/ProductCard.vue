@@ -17,11 +17,16 @@ defineProps({
   </article>
 </template>
 
-<style scoped>
-.product-card{border:1px solid #eee;border-radius:12px;overflow:hidden;background:#fff;transition:box-shadow .2s}
-.product-card:hover{box-shadow:0 6px 20px rgba(0,0,0,0.06)}
-.product-card__image{background-size:cover;background-position:center;height:220px}
-.product-card__info{padding:10px}
-.product-card__title{font-size:14px;margin:0 0 6px;color:#333}
-.product-card__price{font-weight:700;color:#111}
+<style lang="scss" scoped>
+@use '../styles/variables' as *;
+
+.product-card {
+  border:1px solid $color-border; border-radius:$radius-md; overflow:hidden; background:#fff; transition:box-shadow .2s;
+  &:hover { box-shadow:0 6px 20px rgba(0,0,0,0.06); }
+
+  &__image { background-size:cover; background-position:center; height:220px; }
+  &__info { padding:$space-3; }
+  &__title { font-size:14px; margin:0 0 $space-2; color:#333; }
+  &__price { font-weight:700; color:#111; }
+}
 </style> 

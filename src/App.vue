@@ -1,30 +1,21 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import SiteHeader from './components/SiteHeader.vue'
+import MainBanner from './components/MainBanner.vue'
+import ProductShelf from './components/ProductShelf.vue'
+import SiteFooter from './components/SiteFooter.vue'
+import { jackets, cameras } from './data/sampleProducts.js'
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <SiteHeader />
+  <main>
+    <MainBanner />
+    <ProductShelf title="já gostei desse seu casaco" subtitle="tomaqui um novinho em folha" :products="jackets" />
+    <ProductShelf title="câmeras digitais até 70% off" subtitle="descomplique nos cliques" :products="cameras" />
+  </main>
+  <SiteFooter />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+main{display:block}
 </style>

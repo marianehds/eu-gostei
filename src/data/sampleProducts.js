@@ -1,8 +1,8 @@
 export const jackets = [
-  { id: 'j1', title: 'jaqueta de couro', price: 199.9, imageUrl: 'https://images.unsplash.com/photo-1520975922361-5f1ef0206e8b?w=800&q=80' },
-  { id: 'j2', title: 'trench coat', price: 249.9, imageUrl: 'https://images.unsplash.com/photo-1551232864-3f89b32a6b74?w=800&q=80' },
-  { id: 'j3', title: 'jaqueta de sarja', price: 159.9, imageUrl: 'https://images.unsplash.com/photo-1554568218-52396f846254?w=800&q=80' },
-  { id: 'j4', title: 'moletom', price: 129.9, imageUrl: 'https://images.unsplash.com/photo-1520975732119-222ceeadf0c9?w=800&q=80' },
+  { id: 'j1', title: 'jaqueta de couro', price: 199.9, imageUrl: '/images/products/blazer/front.png' },
+  { id: 'j2', title: 'trench coat', price: 249.9, imageUrl: '/images/products/bomberJacket/image.png' },
+  { id: 'j3', title: 'jaqueta de sarja', price: 159.9, imageUrl: '/images/products/furryJacket/front.png' },
+  { id: 'j4', title: 'moletom', price: 129.9, imageUrl: '/images/products/leatherOvercoat/front.png' },
 ]
 
 export const cameras = [

@@ -2,27 +2,28 @@
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import PaginationDots from "./Pagination/PaginationDots.vue";
 
+const publicBase = import.meta.env.BASE_URL;
+
 const slides = [
   {
     title: "Bolsas e mochilas",
     desc: "junto com você em todos os momentos",
     cta: "ver opções",
-    image: "/images/banners/bolsas.png",
+    image: `${publicBase}images/banners/bolsas.png`,
   },
   {
     title: "Relógios",
     desc: "Decorações para deixar seu lar com a sua personalidade",
     cta: "não perde a hora ein!",
-    image: "/images/banners/relogio.png",
+    image: `${publicBase}images/banners/relogio.png`,
   },
   {
     title: "Eletrônicos",
     desc: "dispositivos e cases",
     cta: "te conto onde",
-    image: "/images/banners/tablet.png",
+    image: `${publicBase}images/banners/tablet.png`,
   },
 ];
-
 const index = ref(0);
 let timer;
 onMounted(() => {

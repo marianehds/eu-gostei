@@ -1,8 +1,10 @@
+const publicBase = import.meta.env.BASE_URL
+
 export const jackets = [
-  { id: 'j1', title: 'Blazer', price: 199.9, imageUrl: '/images/products/blazer/front.png', images: ['/images/products/blazer/front.png', '/images/products/blazer/back.png'] },
-  { id: 'j2', title: 'Bomber Jacket', price: 249.9, imageUrl: '/images/products/bomberJacket/image.png', images: ['/images/products/bomberJacket/image.png', '/images/products/bomberJacket/back.png'] },
-  { id: 'j3', title: 'Jaqueta com pelos', price: 159.9, imageUrl: '/images/products/furryJacket/front.png', images: ['/images/products/furryJacket/front.png', '/images/products/furryJacket/back.png'] },
-  { id: 'j4', title: 'Sobretudo de couro', price: 129.9, imageUrl: '/images/products/leatherOvercoat/front.png', images: ['/images/products/leatherOvercoat/front.png', '/images/products/leatherOvercoat/back.png'] },
+  { id: 'j1', title: 'jaqueta de couro', price: 199.9, imageUrl: `${publicBase}images/products/blazer/front.png`, images: [`${publicBase}images/products/blazer/front.png`, `${publicBase}images/products/blazer/back.png`] },
+  { id: 'j2', title: 'trench coat', price: 249.9, imageUrl: `${publicBase}images/products/bomberJacket/image.png`, images: [`${publicBase}images/products/bomberJacket/image.png`, `${publicBase}images/products/bomberJacket/back.png`] },
+  { id: 'j3', title: 'jaqueta de sarja', price: 159.9, imageUrl: `${publicBase}images/products/furryJacket/front.png`, images: [`${publicBase}images/products/furryJacket/front.png`, `${publicBase}images/products/furryJacket/back.png`] },
+  { id: 'j4', title: 'moletom', price: 129.9, imageUrl: `${publicBase}images/products/leatherOvercoat/front.png`, images: [`${publicBase}images/products/leatherOvercoat/front.png`, `${publicBase}images/products/leatherOvercoat/back.png`] },
 ]
 
 export const cameras = [

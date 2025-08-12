@@ -1,11 +1,13 @@
 <script setup>
 import ProductCard from '../ProductCard/ProductCard.vue'
 
-defineProps({
+const props = defineProps({
   title: String,
   subtitle: String,
   products: Array,
 })
+
+const emit = defineEmits(['select'])
 </script>
 
 <template>
@@ -18,7 +20,7 @@ defineProps({
       <a class="product-shelf__see-all" href="#">ver tudo</a>
     </div>
     <div class="product-shelf__grid">
-      <ProductCard v-for="p in products" :key="p.id" :product="p" />
+      <ProductCard v-for="p in products" :key="p.id" :product="p" @select="emit('select', $event)" />
     </div>
   </section>
 </template>

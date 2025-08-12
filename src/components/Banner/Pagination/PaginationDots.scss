@@ -1,0 +1,23 @@
+@use '../../../styles/variables' as *;
+
+.pagination-dots {
+  display: flex;
+  gap: 8px;
+  padding: $space-3 0;
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: $radius-pill;
+    border: 1px solid $color-primary;
+    cursor: pointer;
+    transition: transform .15s ease, background-color .15s ease;
+
+    &.is-active {
+      background: $color-primary;
+      transform: scale(1.15);
+    }
+
+    &:hover { background: lighten($color-primary, 30%); }
+  }
+}

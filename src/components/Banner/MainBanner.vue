@@ -1,18 +1,28 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
+import PaginationDots from "./Pagination/PaginationDots.vue";
 
 const slides = [
   {
-    title: "um passeio sem pressa",
-    desc: "o que o fim de semana pede",
-    cta: "te conto onde",
+    title: "Bolsas e mochilas",
+    desc: "junto com você em todos os momentos",
+    cta: "ver opções",
+    image: "/images/banners/bolsas.png",
   },
   {
-    title: "renovando as energias",
-    desc: "fazendo aquela limpa no armário",
-    cta: "ver dicas",
+    title: "Relógios",
+    desc: "Decorações para deixar seu lar com a sua personalidade",
+    cta: "não perde a hora ein!",
+    image: "/images/banners/relogio.png",
+  },
+  {
+    title: "Eletrônicos",
+    desc: "dispositivos e cases",
+    cta: "te conto onde",
+    image: "/images/banners/tablet.png",
   },
 ];
+
 const index = ref(0);
 let timer;
 onMounted(() => {
@@ -27,31 +37,17 @@ onBeforeUnmount(() => clearInterval(timer));
   <section class="main-banner">
     <div class="main-banner__container">
       <div class="main-banner__visual">
-        <div
-          class="main-banner__art"
-          :style="{
-            background:
-              index === 0
-                ? 'linear-gradient(135deg,#ff6ec4,#7873f5)'
-                : 'linear-gradient(135deg,#f6d365,#fda085)',
-          }"
-        ></div>
+        <img class="main-banner__image" :src="slides[index].image" :alt="slides[index].title" />
       </div>
       <div class="main-banner__copy">
         <h2 class="main-banner__title">{{ slides[index].title }}</h2>
         <p class="main-banner__desc">{{ slides[index].desc }}</p>
         <button class="main-banner__cta">{{ slides[index].cta }}</button>
-        <div class="main-banner__dots">
-          <button
-            v-for="(s, i) in slides"
-            :key="i"
-            class="main-banner__dot"
-            :class="{ 'main-banner__dot--active': i === index }"
-            @click="index = i"
-            aria-label="ir para slide"
-          />
-        </div>
       </div>
+    </div>
+
+    <div class="main-banner__dots">
+      <PaginationDots :total="slides.length" :current="index" @update:current="(v)=> index = v" />
     </div>
   </section>
 </template>

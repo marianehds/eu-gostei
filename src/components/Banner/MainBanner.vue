@@ -1,26 +1,28 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import PaginationDots from "./Pagination/PaginationDots.vue";
+import { useI18n } from "../../i18n.js";
 
 const publicBase = import.meta.env.BASE_URL;
 
+const { t } = useI18n();
 const slides = [
   {
-    title: "Bolsas e mochilas",
-    desc: "junto com você em todos os momentos",
-    cta: "ver opções",
+    title: t('app.banner.slides.0.title'),
+    desc: t('app.banner.slides.0.desc'),
+    cta: t('app.banner.slides.0.cta'),
     image: `${publicBase}images/banners/bolsas.png`,
   },
   {
-    title: "Relógios",
-    desc: "Decorações para deixar seu lar com a sua personalidade",
-    cta: "não perde a hora ein!",
+    title: t('app.banner.slides.1.title'),
+    desc: t('app.banner.slides.1.desc'),
+    cta: t('app.banner.slides.1.cta'),
     image: `${publicBase}images/banners/relogio.png`,
   },
   {
-    title: "Eletrônicos",
-    desc: "dispositivos e cases",
-    cta: "te conto onde",
+    title: t('app.banner.slides.2.title'),
+    desc: t('app.banner.slides.2.desc'),
+    cta: t('app.banner.slides.2.cta'),
     image: `${publicBase}images/banners/tablet.png`,
   },
 ];

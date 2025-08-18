@@ -1,5 +1,7 @@
 <script setup>
 import { ref, watch, computed } from "vue";
+import { useI18n } from "../../i18n.js";
+import { useCurrency } from "../../store/currency";
 
 const props = defineProps({
   modelValue: { type: Boolean, default: false },
@@ -32,13 +34,16 @@ const currentImage = computed(() => images.value[currentIndex.value]);
 const close = () => {
   isOpen.value = false;
 };
+
+const { t } = useI18n();
+const { formatPrice } = useCurrency();
 </script>
 
 <template>
   <teleport to="body">
     <div v-if="isOpen" class="product-modal" @click.self="close">
       <div class="product-modal__dialog" role="dialog" aria-modal="true">
-        <button class="product-modal__close" aria-label="fechar" @click="close">
+        <button class="product-modal__close" :aria-label="t('app.modal.closeAria')" @click="close">
           ×
         </button>
         <div class="product-modal__content">
@@ -63,15 +68,14 @@ const close = () => {
           <div class="product-modal__info">
             <h3 class="product-modal__title">{{ product?.title }}</h3>
             <div class="product-modal__price">
-              R$ {{ Number(product?.price).toFixed(2) }}
+              {{ formatPrice(product?.price) }}
             </div>
             <p class="product-modal__desc">
-              Veja mais fotos deste produto. Ideal para conferir detalhes antes
-              de decidir.
+              {{ t('app.modal.desc') }}
             </p>
             <div class="product-modal__actions">
-              <button class="btn btn-primary">ver detalhes</button>
-              <button class="btn">fechar</button>
+              <button class="btn btn-primary">{{ t('app.modal.details') }}</button>
+              <button class="btn" @click="close">{{ t('app.modal.close') }}</button>
             </div>
           </div>
         </div>

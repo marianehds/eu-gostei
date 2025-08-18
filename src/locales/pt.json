@@ -1,0 +1,47 @@
+{
+  "app": {
+    "shelf": {
+      "jackets": {
+        "title": "já gostei desse seu casaco",
+        "subtitle": "tomaqui um novinho em folha"
+      },
+      "cameras": {
+        "title": "câmeras digitais até 70% off",
+        "subtitle": "descomplique nos cliques"
+      },
+      "seeAll": "ver tudo"
+    },
+    "banner": {
+      "slides": [
+        { "title": "Bolsas e mochilas", "desc": "junto com você em todos os momentos", "cta": "ver opções" },
+        { "title": "Relógios", "desc": "Decorações para deixar seu lar com a sua personalidade", "cta": "não perde a hora ein!" },
+        { "title": "Eletrônicos", "desc": "dispositivos e cases", "cta": "te conto onde" }
+      ]
+    },
+    "header": {
+      "topnote": "projeto de estudo — inspirado em experiências de e-commerce",
+      "searchPlaceholder": "busque \"jaqueta\", \"calça\", ...",
+      "nav": {
+        "clothes": "roupas",
+        "shoes": "calçados",
+        "accessories": "acessórios",
+        "others": "outros"
+      },
+      "actions": {
+        "login": "entrar",
+        "sell": "quero vender"
+      }
+    },
+    "modal": {
+      "closeAria": "fechar",
+      "desc": "Veja mais fotos deste produto. Ideal para conferir detalhes antes de decidir.",
+      "details": "ver detalhes",
+      "close": "fechar"
+    },
+    "footer": {
+      "text": "Projeto de estudo “Eu Gostei”. Sem afiliação. ©"
+    }
+  }
+}
+
+

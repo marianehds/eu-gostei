@@ -6,11 +6,14 @@ import MainBanner from "./components/Banner/MainBanner.vue";
 import ProductShelf from "./components/ProductShelf/ProductShelf.vue";
 import ProductModal from "./components/ProductModal/ProductModal.vue";
 import { jackets, cameras } from "./data/sampleProducts.js";
+import { useI18n } from "./i18n.js";
 
 const selectedProduct = ref(null)
 const isModalOpen = ref(false)
 
 const openProduct = (product) => { selectedProduct.value = product; isModalOpen.value = true }
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -19,14 +22,14 @@ const openProduct = (product) => { selectedProduct.value = product; isModalOpen.
     <main>
       <MainBanner />
       <ProductShelf
-        title="já gostei desse seu casaco"
-        subtitle="tomaqui um novinho em folha"
+        :title="t('app.shelf.jackets.title')"
+        :subtitle="t('app.shelf.jackets.subtitle')"
         :products="jackets"
         @select="openProduct"
       />
       <ProductShelf
-        title="câmeras digitais até 70% off"
-        subtitle="descomplique nos cliques"
+        :title="t('app.shelf.cameras.title')"
+        :subtitle="t('app.shelf.cameras.subtitle')"
         :products="cameras"
         @select="openProduct"
       />

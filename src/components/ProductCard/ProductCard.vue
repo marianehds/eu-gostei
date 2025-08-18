@@ -9,6 +9,8 @@ const props = defineProps({
 const emit = defineEmits(['select'])
 
 const onClick = () => emit('select', props.product)
+import { useCurrency } from "../../store/currency";
+const { formatPrice } = useCurrency()
 </script>
 
 <template>
@@ -16,7 +18,7 @@ const onClick = () => emit('select', props.product)
     <div class="product-card__image" :style="{ backgroundImage: `url(${product.imageUrl})` }" role="img" :aria-label="product.title"></div>
     <div class="product-card__info">
       <h4 class="product-card__title">{{ product.title }}</h4>
-      <div class="product-card__price">R$ {{ Number(product.price).toFixed(2) }}</div>
+      <div class="product-card__price">{{ formatPrice(product.price) }}</div>
     </div>
   </article>
 </template>

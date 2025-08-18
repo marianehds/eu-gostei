@@ -1,14 +1,17 @@
 <script setup>
 import { ref } from "vue";
+import { useI18n } from "../../i18n.js";
 
 const searchQuery = ref("");
 const onSubmit = () => {};
+
+const { t } = useI18n();
 </script>
 
 <template>
   <header class="site-header">
     <div class="site-header__topnote">
-      projeto de estudo — inspirado em experiências de e-commerce
+      {{ t('app.header.topnote') }}
     </div>
     <div class="site-header__bar">
       <a class="site-header__brand" href="#">
@@ -18,7 +21,7 @@ const onSubmit = () => {};
         <input
           class="site-header__search-input"
           v-model="searchQuery"
-          placeholder='busque "jaqueta", "calça", ...'
+          :placeholder="t('app.header.searchPlaceholder')"
         />
         <span class="site-header__search-icon">
           <svg
@@ -40,10 +43,10 @@ const onSubmit = () => {};
         </span>
       </form>
       <nav class="site-header__nav">
-        <a class="site-header__nav-link" href="#">roupas</a>
-        <a class="site-header__nav-link" href="#">calçados</a>
-        <a class="site-header__nav-link" href="#">acessórios</a>
-        <a class="site-header__nav-link" href="#">outros</a>
+        <a class="site-header__nav-link" href="#">{{ t('app.header.nav.clothes') }}</a>
+        <a class="site-header__nav-link" href="#">{{ t('app.header.nav.shoes') }}</a>
+        <a class="site-header__nav-link" href="#">{{ t('app.header.nav.accessories') }}</a>
+        <a class="site-header__nav-link" href="#">{{ t('app.header.nav.others') }}</a>
       </nav>
       <span class="site-header__icon">
         <svg
@@ -70,10 +73,10 @@ const onSubmit = () => {};
       </span>
       <nav class="site-header__actions">
         <button class="site-header__action site-header__action--link">
-          entrar
+          {{ t('app.header.actions.login') }}
         </button>
         <button class="site-header__action site-header__action--primary">
-          quero vender
+          {{ t('app.header.actions.sell') }}
         </button>
       </nav>
     </div>

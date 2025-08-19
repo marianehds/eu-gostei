@@ -8,7 +8,6 @@
         class="filter-option"
         :class="{
           'is-active': selectedFilters.includes(filter.id),
-          'is-highlighted': filter.active,
         }"
       >
         {{ filter.label }}

@@ -1,8 +1,8 @@
-@use '../../styles/variables' as *;
+@use "../../styles/variables" as *;
 
 .filter-options {
   margin-bottom: $space-5;
-  
+
   &__container {
     display: flex;
     gap: $space-2;
@@ -21,26 +21,21 @@
   cursor: pointer;
   font-size: 14px;
   transition: all 0.2s ease;
-  
+
   &:hover {
     border-color: $color-primary;
   }
-  
+
   &.is-active {
     background: $color-primary;
     color: white;
     border-color: $color-primary;
   }
-  
-  &.is-highlighted {
-    border-color: $color-primary;
-    color: $color-primary;
-  }
-  
+
   &__arrow {
     transition: transform 0.2s ease;
   }
-  
+
   &:hover &__arrow {
     transform: rotate(180deg);
   }
@@ -50,7 +45,7 @@
   .filter-options__container {
     gap: $space-1;
   }
-  
+
   .filter-option {
     padding: $space-1 $space-2;
     font-size: 12px;

@@ -52,7 +52,7 @@ export function useRoupasData() {
     { id: "regioes", label: t("app.roupas.filters.nearbyRegions"), active: true },
   ]);
   
-  // Sample products data
+  // Sample products data with real images
   const products = computed(() => [
     {
       id: 1,
@@ -60,7 +60,7 @@ export function useRoupasData() {
       price: 120,
       originalPrice: 150,
       discount: 20,
-      image: "/images/products/jaqueta-denim.jpg",
+      image: `${publicBase}images/products/roupas/jaquetas/bomberJacket/image.png`,
       condition: t("app.roupas.conditions.used"),
     },
     {
@@ -69,7 +69,7 @@ export function useRoupasData() {
       price: 85,
       originalPrice: 120,
       discount: 29,
-      image: "/images/products/casaco-la.jpg",
+      image: `${publicBase}images/products/roupas/Casacos/leatherOvercoat/front.png`,
       condition: t("app.roupas.conditions.new"),
     },
     {
@@ -78,7 +78,7 @@ export function useRoupasData() {
       price: 95,
       originalPrice: 180,
       discount: 47,
-      image: "/images/products/jaqueta-bomber.jpg",
+      image: `${publicBase}images/products/roupas/jaquetas/racingJacket/front.png`,
       condition: t("app.roupas.conditions.used"),
     },
     {
@@ -87,7 +87,7 @@ export function useRoupasData() {
       price: 200,
       originalPrice: 350,
       discount: 43,
-      image: "/images/products/sobretudo.jpg",
+      image: `${publicBase}images/products/roupas/blazer/blazerGrafite/front.png`,
       condition: t("app.roupas.conditions.new"),
     },
     {
@@ -96,7 +96,7 @@ export function useRoupasData() {
       price: 65,
       originalPrice: 80,
       discount: 19,
-      image: "/images/products/cardigan.jpg",
+      image: `${publicBase}images/products/roupas/jaquetas/furryJacket/front.png`,
       condition: t("app.roupas.conditions.used"),
     },
     {
@@ -105,7 +105,7 @@ export function useRoupasData() {
       price: 150,
       originalPrice: 250,
       discount: 40,
-      image: "/images/products/parka.jpg",
+      image: `${publicBase}images/products/roupas/jaquetas/racingJacket/back.png`,
       condition: t("app.roupas.conditions.new"),
     },
   ]);

@@ -29,6 +29,11 @@ npm run build
 ```
 Os arquivos prontos para produção serão gerados em `dist/`.
 
+## Deploy
+```bash
+npm run deploy
+```
+
 ### Pré-visualizar o build
 ```bash
 npm run preview

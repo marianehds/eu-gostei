@@ -8,6 +8,7 @@ export { default as SiteFooter } from './SiteFooter/SiteFooter.vue';
 
 // Product Components
 export { default as ProductCard } from './ProductCard/ProductCard.vue';
+export { default as ArrowButton } from './ProductModal/ArrowButton/ArrowButton.vue';
 export { default as ProductShelf } from './ProductShelf/ProductShelf.vue';
 export { default as ProductModal } from './ProductModal/ProductModal.vue';
 

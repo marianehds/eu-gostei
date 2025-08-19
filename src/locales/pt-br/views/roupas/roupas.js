@@ -1,14 +1,9 @@
 export default {
   categories: {
-    jackets: "jaquetas",
-    sweaters: "suéters & cardigans",
-    overcoats: "sobretudos",
-    jeans: "jeans",
-    sport: "esporte",
-    parkas: "parkas",
-    windbreaker: "corta vento",
-    trenchCoats: "trench coats",
-    others: "outros"
+    casacos: "casacos",
+    jaquetas: "jaquetas",
+    calcas: "calças",
+    vestidos: "vestidos"
   },
   filters: {
     mostRelevant: "mais relevantes",

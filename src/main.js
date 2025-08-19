@@ -2,8 +2,8 @@ import { createApp } from 'vue'
 import './styles/main.scss'
 import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router';
-import HomePage from './components/HomePage.vue';
-import RoupasPage from './components/RoupasPage.vue';
+import HomePage from './views/home/HomePage.vue';
+import RoupasPage from './views/roupas/RoupasPage.vue';
 
 const routes = [
   { path: '/', component: HomePage },

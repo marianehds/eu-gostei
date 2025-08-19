@@ -17,6 +17,8 @@ export default {
     nearbyRegions: "regiões próximas"
   },
   products: {
+    title: "Produtos de Roupas",
+    subtitle: "Encontre as melhores peças para seu estilo",
     jacketDenim: "Jaqueta Denim Clássica",
     woolCoat: "Casaco de Lã Quentinho",
     bomberJacket: "Jaqueta Bomber Vintage",

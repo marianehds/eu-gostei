@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import pt from "./locales/pt.json";
+import pt from "./locales/pt-br/index.js";
 
 const messages = {
   "pt-BR": pt,

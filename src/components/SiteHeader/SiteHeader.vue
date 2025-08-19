@@ -1,11 +1,21 @@
 <script setup>
 import { ref } from "vue";
 import { useI18n } from "../../i18n.js";
+import { useRouter } from 'vue-router';
 
 const searchQuery = ref("");
 const onSubmit = () => {};
 
 const { t } = useI18n();
+const router = useRouter();
+
+const navigateToRoupas = () => {
+  router.push('/roupas');
+};
+
+const navigateToHome = () => {
+  router.push('/');
+};
 </script>
 
 <template>
@@ -14,7 +24,7 @@ const { t } = useI18n();
       {{ t('app.header.topnote') }}
     </div>
     <div class="site-header__bar">
-      <a class="site-header__brand" href="#">
+      <a class="site-header__brand" href="#" @click.prevent="navigateToHome">
         <span class="site-header__brand-icon">&</span>
       </a>
       <form class="site-header__search" @submit.prevent="onSubmit">
@@ -43,7 +53,7 @@ const { t } = useI18n();
         </span>
       </form>
       <nav class="site-header__nav">
-        <a class="site-header__nav-link" href="#">{{ t('app.header.nav.clothes') }}</a>
+        <a class="site-header__nav-link" href="#" @click.prevent="navigateToRoupas">{{ t('app.header.nav.clothes') }}</a>
         <a class="site-header__nav-link" href="#">{{ t('app.header.nav.shoes') }}</a>
         <a class="site-header__nav-link" href="#">{{ t('app.header.nav.accessories') }}</a>
         <a class="site-header__nav-link" href="#">{{ t('app.header.nav.others') }}</a>

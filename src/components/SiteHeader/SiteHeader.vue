@@ -4,17 +4,31 @@ import { useI18n } from "../../i18n.js";
 import { useRouter } from 'vue-router';
 
 const searchQuery = ref("");
-const onSubmit = () => {};
+const showComingSoonModal = ref(false);
+const modalMessage = ref("");
 
 const { t } = useI18n();
 const router = useRouter();
 
 const navigateToRoupas = () => {
   router.push('/roupas');
+  // Fecha o modal se estiver aberto
+  if (showComingSoonModal.value) {
+    showComingSoonModal.value = false;
+  }
 };
 
 const navigateToHome = () => {
   router.push('/');
+};
+
+const showComingSoon = (feature) => {
+  modalMessage.value = t(`app.header.comingSoon.${feature}`);
+  showComingSoonModal.value = true;
+};
+
+const closeModal = () => {
+  showComingSoonModal.value = false;
 };
 </script>
 
@@ -54,9 +68,9 @@ const navigateToHome = () => {
       </form>
       <nav class="site-header__nav">
         <a class="site-header__nav-link" href="#" @click.prevent="navigateToRoupas">{{ t('app.header.nav.clothes') }}</a>
-        <a class="site-header__nav-link" href="#">{{ t('app.header.nav.shoes') }}</a>
-        <a class="site-header__nav-link" href="#">{{ t('app.header.nav.accessories') }}</a>
-        <a class="site-header__nav-link" href="#">{{ t('app.header.nav.others') }}</a>
+        <a class="site-header__nav-link" href="#" @click.prevent="showComingSoon('shoes')">{{ t('app.header.nav.shoes') }}</a>
+        <a class="site-header__nav-link" href="#" @click.prevent="showComingSoon('accessories')">{{ t('app.header.nav.accessories') }}</a>
+        <a class="site-header__nav-link" href="#" @click.prevent="showComingSoon('others')">{{ t('app.header.nav.others') }}</a>
       </nav>
       <span class="site-header__icon">
         <svg
@@ -82,14 +96,38 @@ const navigateToHome = () => {
         </svg>
       </span>
       <nav class="site-header__actions">
-        <button class="site-header__action site-header__action--link">
+        <button class="site-header__action site-header__action--link" @click="showComingSoon('login')">
           {{ t('app.header.actions.login') }}
         </button>
-        <button class="site-header__action site-header__action--primary">
+        <button class="site-header__action site-header__action--primary" @click="showComingSoon('sell')">
           {{ t('app.header.actions.sell') }}
         </button>
       </nav>
     </div>
+
+    <!-- Coming Soon Modal -->
+    <div v-if="showComingSoonModal" class="coming-soon-modal" @click="closeModal">
+      <div class="coming-soon-modal__content" @click.stop>
+        <div class="coming-soon-modal__header">
+          <h3 class="coming-soon-modal__title">🚧 Em Construção</h3>
+          <button class="coming-soon-modal__close" @click="closeModal">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="coming-soon-modal__body">
+          <p class="coming-soon-modal__message">{{ modalMessage }}</p>
+          <div class="coming-soon-modal__suggestion">
+            <p>💡 <strong>Dica:</strong> Que tal dar uma olhada na nossa página de <strong>Roupas</strong> que está sendo construída?</p>
+            <button class="coming-soon-modal__button" @click="navigateToRoupas">
+              Ver Roupas
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 </template>
+
 <style src="./SiteHeader.scss" lang="scss" scoped></style>

@@ -47,6 +47,6 @@ defineEmits(["toggle"]);
 </script>
 
 <style lang="scss">
-@use "../../styles/variables";
+@use "./FilterOptions.scss";
 </style>
 //usar esse padrao

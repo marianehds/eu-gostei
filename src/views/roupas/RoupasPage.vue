@@ -21,13 +21,20 @@
       @toggle="toggleFilter"
     />
 
-    <!-- Products Shelf -->
-    <ProductShelf
-      :title="t('app.roupas.products.title')"
-      :subtitle="t('app.roupas.products.subtitle')"
-      :products="filteredProducts"
-      @select="openProduct"
-    />
+    <!-- Products Shelf / Empty State -->
+    <template v-if="filteredProducts.length">
+      <ProductShelf
+        :title="t('app.roupas.products.title')"
+        :subtitle="t('app.roupas.products.subtitle')"
+        :products="filteredProducts"
+        @select="openProduct"
+      />
+    </template>
+    <template v-else>
+      <div class="roupas-page__empty">
+        <img :src="notFoundImg" alt="Nenhum produto encontrado" />
+      </div>
+    </template>
 
     <!-- Product Modal -->
     <ProductModal v-model="isModalOpen" :product="selectedProduct" />
@@ -46,6 +53,7 @@ import {
   ProductShelf, 
   ProductModal 
 } from "../../components/index.js";
+import notFoundImg from "../../assets/images/notFound/notFound.PNG";
 
 const router = useRouter();
 const { t } = useI18n();

@@ -6,6 +6,23 @@
   margin: 0 auto;
 }
 
+.roupas-page__empty {
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-6 0;
+
+  img {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    filter: saturate(0.9);
+  }
+}
+
 @media (max-width: 768px) {
   .roupas-page {
     padding: $space-3;

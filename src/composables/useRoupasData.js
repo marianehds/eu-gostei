@@ -1,6 +1,7 @@
 import { ref, computed } from 'vue';
 import { useI18n } from '../i18n.js';
 import { breadcrumbImages, productImages } from '../assets/images/index.js';
+import { jackets as jacketsStore } from '../store/products.js';
 
 export function useRoupasData() {
   const { t } = useI18n();
@@ -50,80 +51,68 @@ export function useRoupasData() {
     { id: "regioes", label: t("app.roupas.filters.nearbyRegions"), active: true },
   ]);
   
-  // Sample products data with real images
-  const products = computed(() => [
-    {
-      id: 1,
-      name: t("app.roupas.products.jacketDenim"),
-      price: 120,
-      originalPrice: 150,
-      discount: 20,
-      image: productImages.roupas.jaquetas.bomberJacket.image,
-      condition: t("app.roupas.conditions.used"),
-    },
-    {
-      id: 2,
-      name: t("app.roupas.products.woolCoat"),
-      price: 85,
-      originalPrice: 120,
-      discount: 29,
-      image: productImages.roupas.casacos.leatherOvercoat.front,
-      condition: t("app.roupas.conditions.new"),
-    },
-    {
-      id: 3,
-      name: t("app.roupas.products.bomberJacket"),
-      price: 95,
-      originalPrice: 180,
-      discount: 47,
-      image: productImages.roupas.jaquetas.racingJacket.front,
-      condition: t("app.roupas.conditions.used"),
-    },
-    {
-      id: 4,
-      name: t("app.roupas.products.elegantCoat"),
-      price: 200,
-      originalPrice: 350,
-      discount: 43,
-      image: productImages.roupas.blazer.blazerGrafite.front,
-      condition: t("app.roupas.conditions.new"),
-    },
-    {
-      id: 5,
-      name: t("app.roupas.products.knitCardigan"),
-      price: 65,
-      originalPrice: 80,
-      discount: 19,
-      image: productImages.roupas.jaquetas.furryJacket.front,
-      condition: t("app.roupas.conditions.used"),
-    },
-    {
-      id: 6,
-      name: t("app.roupas.products.waterproofParka"),
-      price: 150,
-      originalPrice: 250,
-      discount: 40,
-      image: productImages.roupas.jaquetas.racingJacket.back,
-      condition: t("app.roupas.conditions.new"),
-    },
-  ]);
+  // Produtos de roupas compostos a partir do store (ids/preços) + imagens + chaves de título
+  const products = computed(() =>
+    jacketsStore.map((p) => {
+      switch (p.id) {
+        case 'j1':
+          return {
+            id: p.id,
+            title: 'app.products.roupas.blazer.blazerGrafite.title',
+            category: 'casacos',
+            price: p.price,
+            imageUrl: productImages.roupas.blazer.blazerGrafite.front,
+            images: [
+              productImages.roupas.blazer.blazerGrafite.front,
+              productImages.roupas.blazer.blazerGrafite.back,
+            ],
+          };
+        case 'j2':
+          return {
+            id: p.id,
+            title: 'app.products.roupas.jaquetas.bomberJacket.title',
+            category: 'jaquetas',
+            price: p.price,
+            imageUrl: productImages.roupas.jaquetas.bomberJacket.image,
+            images: [
+              productImages.roupas.jaquetas.bomberJacket.image,
+              productImages.roupas.jaquetas.bomberJacket.back,
+            ],
+          };
+        case 'j3':
+          return {
+            id: p.id,
+            title: 'app.products.roupas.jaquetas.furryJacket.title',
+            category: 'jaquetas',
+            price: p.price,
+            imageUrl: productImages.roupas.jaquetas.furryJacket.front,
+            images: [
+              productImages.roupas.jaquetas.furryJacket.front,
+              productImages.roupas.jaquetas.furryJacket.back,
+            ],
+          };
+        case 'j5':
+          return {
+            id: p.id,
+            title: 'app.products.roupas.casacos.leatherOvercoat.title',
+            category: 'casacos',
+            price: p.price,
+            imageUrl: productImages.roupas.casacos.leatherOvercoat.front,
+            images: [
+              productImages.roupas.casacos.leatherOvercoat.front,
+              productImages.roupas.casacos.leatherOvercoat.back,
+            ],
+          };
+        default:
+          return { id: p.id, price: p.price, title: '', category: '', imageUrl: '' };
+      }
+    })
+  );
   
   // Computed filtered products based on selected category
   const filteredProducts = computed(() => {
     if (selectedCategory.value) {
-      return products.value.filter((product) => {
-        const categoryKeywords = {
-          casacos: ["casaco", "coat", "cardigan"],
-          jaquetas: ["jaqueta", "jacket", "bomber"],
-          calcas: ["calça", "pants", "trousers"],
-          vestidos: ["vestido", "dress"],
-        };
-
-        const keywords = categoryKeywords[selectedCategory.value] || [];
-        return keywords.some((keyword) =>
-          product.name.toLowerCase().includes(keyword.toLowerCase())
-        );
-      });
+      return products.value.filter((product) => product.category === selectedCategory.value);
     }
     return products.value;
   });

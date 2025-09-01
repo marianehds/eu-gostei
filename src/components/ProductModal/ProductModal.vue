@@ -45,37 +45,38 @@ const nextImage = () => {
 
 const prevImage = () => {
   if (images.value.length > 1) {
-    currentIndex.value = currentIndex.value === 0 
-      ? images.value.length - 1 
-      : currentIndex.value - 1;
+    currentIndex.value =
+      currentIndex.value === 0
+        ? images.value.length - 1
+        : currentIndex.value - 1;
   }
 };
 
 // Keyboard navigation
 const handleKeydown = (event) => {
   if (!isOpen.value || images.value.length <= 1) return;
-  
+
   switch (event.key) {
-    case 'ArrowLeft':
+    case "ArrowLeft":
       event.preventDefault();
       prevImage();
       break;
-    case 'ArrowRight':
+    case "ArrowRight":
       event.preventDefault();
       nextImage();
       break;
-    case 'Escape':
+    case "Escape":
       close();
       break;
   }
 };
 
 onMounted(() => {
-  document.addEventListener('keydown', handleKeydown);
+  document.addEventListener("keydown", handleKeydown);
 });
 
 onBeforeUnmount(() => {
-  document.removeEventListener('keydown', handleKeydown);
+  document.removeEventListener("keydown", handleKeydown);
 });
 
 const { t } = useI18n();
@@ -86,12 +87,16 @@ const { formatPrice } = useCurrency();
   <teleport to="body">
     <div v-if="isOpen" class="product-modal" @click.self="close">
       <div class="product-modal__dialog" role="dialog" aria-modal="true">
-        <button class="product-modal__close" :aria-label="t('app.modal.closeAria')" @click="close">
+        <button
+          class="product-modal__close"
+          :aria-label="t('app.modal.closeAria')"
+          @click="close"
+        >
           ×
         </button>
         <div class="product-modal__content">
           <div class="product-modal__gallery">
-            <div 
+            <div
               class="product-modal__image-container"
               @mouseenter="isHovering = true"
               @mouseleave="isHovering = false"
@@ -99,11 +104,14 @@ const { formatPrice } = useCurrency();
               <img
                 class="product-modal__image"
                 :src="currentImage"
-                :alt="product?.title"
+                :alt="t(product?.title)"
               />
-              
+
               <!-- Navigation Arrows (only visible on hover and when multiple images) -->
-              <div v-if="images.length > 1 && isHovering" class="product-modal__navigation">
+              <div
+                v-if="images.length > 1 && isHovering"
+                class="product-modal__navigation"
+              >
                 <ArrowButton
                   direction="prev"
                   :aria-label="t('app.modal.previousImage')"
@@ -115,13 +123,13 @@ const { formatPrice } = useCurrency();
                   @click="nextImage"
                 />
               </div>
-              
+
               <!-- Image Counter -->
               <div v-if="images.length > 1" class="product-modal__counter">
                 {{ currentIndex + 1 }} / {{ images.length }}
               </div>
             </div>
-            
+
             <div v-if="images.length > 1" class="product-modal__thumbs">
               <button
                 v-for="(img, i) in images"
@@ -130,21 +138,25 @@ const { formatPrice } = useCurrency();
                 :class="{ 'is-active': i === currentIndex }"
                 @click="currentIndex = i"
               >
-                <img :src="img" :alt="`${product?.title} ${i + 1}`" />
+                <img :src="img" :alt="`${t(product?.title)} ${i + 1}`" />
               </button>
             </div>
           </div>
           <div class="product-modal__info">
-            <h3 class="product-modal__title">{{ product?.title }}</h3>
+            <h3 class="product-modal__title">{{ t(product?.title) }}</h3>
             <div class="product-modal__price">
               {{ formatPrice(product?.price) }}
             </div>
             <p class="product-modal__desc">
-              {{ t('app.modal.desc') }}
+              {{ t("app.modal.desc") }}
             </p>
             <div class="product-modal__actions">
-              <button class="btn btn-primary">{{ t('app.modal.details') }}</button>
-              <button class="btn" @click="close">{{ t('app.modal.close') }}</button>
+              <button class="btn btn-primary">
+                {{ t("app.modal.details") }}
+              </button>
+              <button class="btn" @click="close">
+                {{ t("app.modal.close") }}
+              </button>
             </div>
           </div>
         </div>
@@ -153,4 +165,6 @@ const { formatPrice } = useCurrency();
   </teleport>
 </template>
 
-<style src="./ProductModal.scss" lang="scss" scoped></style>
+<style lang="scss">
+@use "./ProductModal.scss";
+</style>

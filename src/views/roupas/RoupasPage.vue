@@ -84,4 +84,6 @@ const openProduct = (product) => {
 };
 </script>
 
-<style src="./RoupasPage.scss" lang="scss" scoped></style>
+<style lang="scss">
+@use "./RoupasPage.scss";
+</style>

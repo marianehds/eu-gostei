@@ -55,4 +55,6 @@ const handleClick = () => {
 };
 </script>
 
-<style src="./ArrowButton.scss" lang="scss" scoped></style>
+<style lang="scss">
+@use "./ArrowButton.scss";
+</style>

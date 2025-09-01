@@ -1,11 +1,9 @@
 import { ref, computed } from 'vue';
 import { useI18n } from '../i18n.js';
+import { breadcrumbImages, productImages } from '../assets/images/index.js';
 
 export function useRoupasData() {
   const { t } = useI18n();
-  
-  // Public base path for images
-  const publicBase = import.meta.env.BASE_URL;
   
   // State
   const selectedCategory = ref(null);
@@ -16,22 +14,22 @@ export function useRoupasData() {
     {
       id: "casacos",
       label: t("app.roupas.categories.casacos"),
-      image: `${publicBase}images/breadcrumb/casaco.png`,
+      image: breadcrumbImages.casaco,
     },
     {
       id: "jaquetas",
       label: t("app.roupas.categories.jaquetas"),
-      image: `${publicBase}images/breadcrumb/jaqueta.png`,
+      image: breadcrumbImages.jaqueta,
     },
     {
       id: "calcas",
       label: t("app.roupas.categories.calcas"),
-      image: `${publicBase}images/breadcrumb/calca.png`,
+      image: breadcrumbImages.calca,
     },
     {
       id: "vestidos",
       label: t("app.roupas.categories.vestidos"),
-      image: `${publicBase}images/breadcrumb/vestido.png`,
+      image: breadcrumbImages.vestido,
     },
   ]);
   
@@ -60,7 +58,7 @@ export function useRoupasData() {
       price: 120,
       originalPrice: 150,
       discount: 20,
-      image: `${publicBase}images/products/roupas/jaquetas/bomberJacket/image.png`,
+      image: productImages.roupas.jaquetas.bomberJacket.image,
       condition: t("app.roupas.conditions.used"),
     },
     {
@@ -69,7 +67,7 @@ export function useRoupasData() {
       price: 85,
       originalPrice: 120,
       discount: 29,
-      image: `${publicBase}images/products/roupas/Casacos/leatherOvercoat/front.png`,
+      image: productImages.roupas.casacos.leatherOvercoat.front,
       condition: t("app.roupas.conditions.new"),
     },
     {
@@ -78,7 +76,7 @@ export function useRoupasData() {
       price: 95,
       originalPrice: 180,
       discount: 47,
-      image: `${publicBase}images/products/roupas/jaquetas/racingJacket/front.png`,
+      image: productImages.roupas.jaquetas.racingJacket.front,
       condition: t("app.roupas.conditions.used"),
     },
     {
@@ -87,7 +85,7 @@ export function useRoupasData() {
       price: 200,
       originalPrice: 350,
       discount: 43,
-      image: `${publicBase}images/products/roupas/blazer/blazerGrafite/front.png`,
+      image: productImages.roupas.blazer.blazerGrafite.front,
       condition: t("app.roupas.conditions.new"),
     },
     {
@@ -96,7 +94,7 @@ export function useRoupasData() {
       price: 65,
       originalPrice: 80,
       discount: 19,
-      image: `${publicBase}images/products/roupas/jaquetas/furryJacket/front.png`,
+      image: productImages.roupas.jaquetas.furryJacket.front,
       condition: t("app.roupas.conditions.used"),
     },
     {
@@ -105,7 +103,7 @@ export function useRoupasData() {
       price: 150,
       originalPrice: 250,
       discount: 40,
-      image: `${publicBase}images/products/roupas/jaquetas/racingJacket/back.png`,
+      image: productImages.roupas.jaquetas.racingJacket.back,
       condition: t("app.roupas.conditions.new"),
     },
   ]);

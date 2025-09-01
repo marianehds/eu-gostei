@@ -33,4 +33,6 @@ const openProduct = (product) => { selectedProduct.value = product; isModalOpen.
 const { t } = useI18n()
 </script>
 
-<style src="./HomePage.scss" lang="scss" scoped></style>
+<style lang="scss">
+@use "./HomePage.scss";
+</style>

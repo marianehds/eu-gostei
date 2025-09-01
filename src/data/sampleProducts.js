@@ -1,84 +1,87 @@
-const publicBase = import.meta.env.BASE_URL;
+import { productImages } from '../assets/images/index.js';
+import { jackets as jacketsStore, cameras as camerasStore } from '../store/products.js';
 
-export const jackets = [
-  {
-    id: "j1",
-    title: "Blazer grafite",
-    price: 199.9,
-    imageUrl: `${publicBase}images/products/roupas/blazer/blazerGrafite/front.png`,
-    images: [
-      `${publicBase}images/products/roupas/blazer/blazerGrafite/front.png`,
-      `${publicBase}images/products/roupas/blazer/blazerGrafite/back.png`,
-    ],
-  },
-  {
-    id: "j2",
-    title: "Bomber jacket",
-    price: 249.9,
-    imageUrl: `${publicBase}images/products/roupas/jaquetas/bomberJacket/image.png`,
-    images: [
-      `${publicBase}images/products/roupas/jaquetas/bomberJacket/image.png`,
-      `${publicBase}images/products/roupas/jaquetas/bomberJacket/back.png`,
-    ],
-  },
-  {
-    id: "j3",
-    title: "Peludinho",
-    price: 159.9,
-    imageUrl: `${publicBase}images/products/roupas/jaquetas/furryJacket/front.png`,
-    images: [
-      `${publicBase}images/products/roupas/jaquetas/furryJacket/front.png`,
-      `${publicBase}images/products/roupas/jaquetas/furryJacket/back.png`,
-    ],
-  },
-  {
-    id: "j4",
-    title: "Casacão de couro",
-    price: 129.9,
-    imageUrl: `${publicBase}images/products/roupas/Casacos/leatherOvercoat/front.png`,
-    images: [
-      `${publicBase}images/products/roupas/Casacos/leatherOvercoat/front.png`,
-      `${publicBase}images/products/roupas/Casacos/leatherOvercoat/back.png`,
-    ],
-  },
-];
+export const jackets = jacketsStore.map((p) => {
+  switch (p.id) {
+    case 'j1':
+      return {
+        ...p,
+        title: 'app.products.roupas.blazer.blazerGrafite.title',
+        imageUrl: productImages.roupas.blazer.blazerGrafite.front,
+        images: [
+          productImages.roupas.blazer.blazerGrafite.front,
+          productImages.roupas.blazer.blazerGrafite.back,
+        ],
+      };
+    case 'j2':
+      return {
+        ...p,
+        title: 'app.products.roupas.jaquetas.bomberJacket.title',
+        imageUrl: productImages.roupas.jaquetas.bomberJacket.image,
+        images: [
+          productImages.roupas.jaquetas.bomberJacket.image,
+          productImages.roupas.jaquetas.bomberJacket.back,
+        ],
+      };
+    case 'j3':
+      return {
+        ...p,
+        title: 'app.products.roupas.jaquetas.furryJacket.title',
+        imageUrl: productImages.roupas.jaquetas.furryJacket.front,
+        images: [
+          productImages.roupas.jaquetas.furryJacket.front,
+          productImages.roupas.jaquetas.furryJacket.back,
+        ],
+      };
+    case 'j5':
+      return {
+        ...p,
+        title: 'app.products.roupas.casacos.leatherOvercoat.title',
+        imageUrl: productImages.roupas.casacos.leatherOvercoat.front,
+        images: [
+          productImages.roupas.casacos.leatherOvercoat.front,
+          productImages.roupas.casacos.leatherOvercoat.back,
+        ],
+      };
+    default:
+      return p;
+  }
+});
 
-export const cameras = [
-  {
-    id: "c1",
-    title: "Mini 8",
-    price: 349.9,
-    imageUrl: `${publicBase}images/products/eletronicos/cameras/instaxmini8.png`,
-    images: [
-      `${publicBase}images/products/eletronicos/cameras/instaxmini8.png`,
-    ],
-  },
-  {
-    id: "c2",
-    title: "Mini 41",
-    price: 219.0,
-    imageUrl: `${publicBase}images/products/eletronicos/cameras/instaxmini41.png`,
-    images: [
-      `${publicBase}images/products/eletronicos/cameras/instaxmini41.png`,
-    ],
-  },
-  {
-    id: "c3",
-    title: "Mini 90",
-    price: 89.9,
-    imageUrl: `${publicBase}images/products/eletronicos/cameras/instaxmini90.png`,
-    images: [
-      `${publicBase}images/products/eletronicos/cameras/instaxmini90.png`,
-      `${publicBase}images/products/eletronicos/cameras/instaxmini90.png`,
-    ],
-  },
-  {
-    id: "c4",
-    title: "Mini 12",
-    price: 129.9,
-    imageUrl: `${publicBase}images/products/eletronicos/cameras/instaxmini12.png`,
-    images: [
-      `${publicBase}images/products/eletronicos/cameras/instaxmini12.png`,
-    ],
-  },
-];
+export const cameras = camerasStore.map((p) => {
+  switch (p.id) {
+    case 'c1':
+      return {
+        ...p,
+        title: 'app.products.eletronicos.cameras.instaxMini8.title',
+        imageUrl: productImages.eletronicos.cameras.instaxMini8,
+        images: [productImages.eletronicos.cameras.instaxMini8],
+      };
+    case 'c2':
+      return {
+        ...p,
+        title: 'app.products.eletronicos.cameras.instaxMini41.title',
+        imageUrl: productImages.eletronicos.cameras.instaxMini41,
+        images: [productImages.eletronicos.cameras.instaxMini41],
+      };
+    case 'c3':
+      return {
+        ...p,
+        title: 'app.products.eletronicos.cameras.instaxMini90.title',
+        imageUrl: productImages.eletronicos.cameras.instaxMini90,
+        images: [
+          productImages.eletronicos.cameras.instaxMini90,
+          productImages.eletronicos.cameras.instaxMini90,
+        ],
+      };
+    case 'c4':
+      return {
+        ...p,
+        title: 'app.products.eletronicos.cameras.instaxMini12.title',
+        imageUrl: productImages.eletronicos.cameras.instaxMini12,
+        images: [productImages.eletronicos.cameras.instaxMini12],
+      };
+    default:
+      return p;
+  }
+});

@@ -2,8 +2,7 @@
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import PaginationDots from "./Pagination/PaginationDots.vue";
 import { useI18n } from "../../i18n.js";
-
-const publicBase = import.meta.env.BASE_URL;
+import { bannerImages } from "../../assets/images/index.js";
 
 const { t } = useI18n();
 const slides = [
@@ -11,19 +10,19 @@ const slides = [
     title: t('app.banner.slides.0.title'),
     desc: t('app.banner.slides.0.desc'),
     cta: t('app.banner.slides.0.cta'),
-    image: `${publicBase}images/banners/bolsas.png`,
+    image: bannerImages.bolsas,
   },
   {
     title: t('app.banner.slides.1.title'),
     desc: t('app.banner.slides.1.desc'),
     cta: t('app.banner.slides.1.cta'),
-    image: `${publicBase}images/banners/relogio.png`,
+    image: bannerImages.relogio,
   },
   {
     title: t('app.banner.slides.2.title'),
     desc: t('app.banner.slides.2.desc'),
     cta: t('app.banner.slides.2.cta'),
-    image: `${publicBase}images/banners/tablet.png`,
+    image: bannerImages.tablet,
   },
 ];
 const index = ref(0);
@@ -55,4 +54,6 @@ onBeforeUnmount(() => clearInterval(timer));
   </section>
 </template>
 
-<style src="./MainBanner.scss" lang="scss" scoped></style>
+<style lang="scss">
+@use "./MainBanner.scss";
+</style>

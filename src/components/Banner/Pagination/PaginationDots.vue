@@ -25,4 +25,6 @@ const goTo = (index) => {
   </div>
 </template>
 
-<style src="./PaginationDots.scss" lang="scss" scoped></style>
+<style lang="scss">
+@use "./PaginationDots.scss";
+</style>

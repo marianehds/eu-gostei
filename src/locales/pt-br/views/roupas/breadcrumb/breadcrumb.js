@@ -4,3 +4,4 @@ export default {
   clothes: "roupas",
   coats: "casacos & jaquetas"
 };
+// colocar para view

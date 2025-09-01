@@ -34,16 +34,19 @@ defineProps({
   filters: {
     type: Array,
     required: true,
-    default: () => []
+    default: () => [],
   },
   selectedFilters: {
     type: Array,
     required: true,
-    default: () => []
-  }
+    default: () => [],
+  },
 });
 
-defineEmits(['toggle']);
+defineEmits(["toggle"]);
 </script>
 
-<style src="./FilterOptions.scss" lang="scss" scoped></style>
+<style lang="scss">
+@use "../../styles/variables";
+</style>
+//usar esse padrao

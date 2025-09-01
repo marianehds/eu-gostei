@@ -33,4 +33,6 @@ defineProps({
 defineEmits(['select']);
 </script>
 
-<style src="./CategoryFilters.scss" lang="scss" scoped></style>
+<style lang="scss">
+@use "./CategoryFilters.scss";
+</style>

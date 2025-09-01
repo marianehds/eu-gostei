@@ -6,4 +6,3 @@ export default {
     previousImage: "imagem anterior",
     nextImage: "próxima imagem"
   };
-  

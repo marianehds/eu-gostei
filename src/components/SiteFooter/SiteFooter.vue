@@ -11,4 +11,7 @@ const { t } = useI18n();
   </footer>
   </template>
 
-<style src="./SiteFooter.scss" lang="scss" scoped></style>
+
+<style lang="scss">
+@use "./SiteFooter.scss";
+</style>

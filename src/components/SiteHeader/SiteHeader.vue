@@ -130,4 +130,6 @@ const closeModal = () => {
   </header>
 </template>
 
-<style src="./SiteHeader.scss" lang="scss" scoped></style>
+<style lang="scss">
+@use "./SiteHeader.scss";
+</style>

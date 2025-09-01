@@ -28,4 +28,6 @@ const { t } = useI18n()
   </section>
 </template>
 
-<style src="./ProductShelf.scss" lang="scss" scoped></style>
+<style lang="scss">
+@use "./ProductShelf.scss";
+</style>

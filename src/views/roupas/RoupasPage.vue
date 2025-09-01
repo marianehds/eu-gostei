@@ -36,8 +36,7 @@
       </div>
     </template>
 
-    <!-- Product Modal -->
-    <ProductModal v-model="isModalOpen" :product="selectedProduct" />
+    <!-- Product Modal removido nesta página -->
   </div>
 </template>
 
@@ -50,17 +49,14 @@ import {
   Breadcrumb, 
   CategoryFilters, 
   FilterOptions, 
-  ProductShelf, 
-  ProductModal 
+  ProductShelf 
 } from "../../components/index.js";
 import notFoundImg from "../../assets/images/notFound/notFound.PNG";
 
 const router = useRouter();
 const { t } = useI18n();
 
-// Product modal state
-const selectedProduct = ref(null);
-const isModalOpen = ref(false);
+// Estado de modal removido nesta página
 
 // Use composables
 const {
@@ -87,8 +83,7 @@ const handleBreadcrumbNavigation = (item) => {
 };
 
 const openProduct = (product) => {
-  selectedProduct.value = product;
-  isModalOpen.value = true;
+  router.push(`/roupas/${product.id}`);
 };
 </script>
 

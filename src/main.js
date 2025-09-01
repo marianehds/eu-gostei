@@ -4,10 +4,12 @@ import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from './views/home/HomePage.vue';
 import RoupasPage from './views/roupas/RoupasPage.vue';
+import ProductDetail from './views/product/ProductDetail.vue';
 
 const routes = [
   { path: '/', component: HomePage },
   { path: '/roupas', component: RoupasPage },
+  { path: '/roupas/:id', component: ProductDetail },
 ];
 
 const router = createRouter({

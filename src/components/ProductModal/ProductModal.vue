@@ -1,5 +1,6 @@
 <script setup>
 import { ref, watch, computed, onMounted, onBeforeUnmount } from "vue";
+import { useRouter } from "vue-router";
 import { useI18n } from "../../i18n.js";
 import { useCurrency } from "../../store/currency";
 import ArrowButton from "./ArrowButton/ArrowButton.vue";
@@ -80,6 +81,13 @@ onBeforeUnmount(() => {
 });
 
 const { t } = useI18n();
+const router = useRouter();
+const viewDetails = () => {
+  if (props.product?.id) {
+    isOpen.value = false;
+    router.push(`/roupas/${props.product.id}`);
+  }
+};
 const { formatPrice } = useCurrency();
 </script>
 
@@ -151,7 +159,7 @@ const { formatPrice } = useCurrency();
               {{ t("app.modal.desc") }}
             </p>
             <div class="product-modal__actions">
-              <button class="btn btn-primary">
+              <button class="btn btn-primary" @click="viewDetails">
                 {{ t("app.modal.details") }}
               </button>
               <button class="btn" @click="close">

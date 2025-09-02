@@ -1,0 +1,226 @@
+@use '../../styles/variables' as *;
+
+.seller-page {
+  min-height: 100vh;
+  background: $color-background-light;
+  padding: $space-6 $space-4;
+}
+
+.seller-page__container {
+  max-width: $container-max;
+  margin: 0 auto;
+}
+
+.seller-page__header {
+  text-align: center;
+  margin-bottom: $space-8;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $color-text-primary;
+    margin: 0 0 $space-3;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: $color-text-secondary;
+    margin: 0;
+  }
+}
+
+.seller-page__content {
+  display: grid;
+  gap: $space-6;
+  margin-bottom: $space-8;
+}
+
+.seller-card {
+  background: white;
+  border-radius: $radius-lg;
+  padding: $space-6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $color-text-primary;
+    margin: 0 0 $space-4;
+  }
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $space-4;
+
+  .action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $space-5;
+    border: 2px solid $color-border;
+    border-radius: $radius-lg;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+
+    &:hover {
+      border-color: $color-primary;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .action-icon {
+      font-size: 2rem;
+      margin-bottom: $space-3;
+    }
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: $space-4;
+
+  .stat-item {
+    text-align: center;
+    padding: $space-4;
+    background: $color-background-light;
+    border-radius: $radius-md;
+
+    .stat-number {
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      color: $color-primary;
+      margin-bottom: $space-2;
+    }
+
+    .stat-label {
+      color: $color-text-secondary;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.seller-page__footer {
+  display: flex;
+  gap: $space-4;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .btn {
+    padding: $space-3 $space-6;
+    border: none;
+    border-radius: $radius-md;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 120px;
+
+    &.btn-primary {
+      background: $color-primary;
+      color: white;
+
+      &:hover {
+        background: $color-primary-dark;
+        transform: translateY(-1px);
+      }
+    }
+
+    &.btn-secondary {
+      background: transparent;
+      color: $color-text-secondary;
+      border: 2px solid $color-border;
+
+      &:hover {
+        border-color: $color-text-primary;
+        color: $color-text-primary;
+      }
+    }
+  }
+}
+
+// Modal de funcionalidade em desenvolvimento
+.coming-soon-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: $space-4;
+
+  .modal-content {
+    background: white;
+    border-radius: $radius-lg;
+    padding: $space-6;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $color-text-primary;
+      margin: 0 0 $space-3;
+    }
+
+    p {
+      color: $color-text-secondary;
+      margin: 0 0 $space-4;
+      line-height: 1.5;
+    }
+
+    .btn {
+      padding: $space-3 $space-6;
+      border: none;
+      border-radius: $radius-md;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: $color-primary;
+      color: white;
+
+      &:hover {
+        background: $color-primary-dark;
+      }
+    }
+  }
+}
+
+// Responsividade
+@media (max-width: 768px) {
+  .seller-page {
+    padding: $space-4 $space-2;
+  }
+
+  .seller-page__header h1 {
+    font-size: 2rem;
+  }
+
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .seller-page__footer {
+    flex-direction: column;
+    align-items: center;
+
+    .btn {
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+}

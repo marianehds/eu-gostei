@@ -1,0 +1,198 @@
+@use '../../styles/variables' as *;
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, $color-primary-light 0%, $color-primary 100%);
+  padding: $space-4;
+}
+
+.login-page__container {
+  background: white;
+  border-radius: $radius-lg;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: $space-8;
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+}
+
+.login-page__header {
+  text-align: center;
+  margin-bottom: $space-6;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $color-text-primary;
+    margin: 0 0 $space-2;
+  }
+
+  p {
+    color: $color-text-secondary;
+    margin: 0;
+    font-size: 1.1rem;
+  }
+}
+
+.login-page__tabs {
+  display: flex;
+  background: $color-background-light;
+  border-radius: $radius-pill;
+  padding: $space-1;
+  margin-bottom: $space-6;
+
+  .tab {
+    flex: 1;
+    padding: $space-3 $space-4;
+    border: none;
+    background: transparent;
+    border-radius: $radius-pill;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    color: $color-text-secondary;
+
+    &.is-active {
+      background: white;
+      color: $color-primary;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    &:hover:not(.is-active) {
+      color: $color-text-primary;
+    }
+  }
+}
+
+.login-form,
+.register-form {
+  .form-group {
+    margin-bottom: $space-4;
+
+    label {
+      display: block;
+      margin-bottom: $space-2;
+      font-weight: 500;
+      color: $color-text-primary;
+    }
+
+    input {
+      width: 100%;
+      padding: $space-3 $space-4;
+      border: 2px solid $color-border;
+      border-radius: $radius-md;
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+
+      &:focus {
+        outline: none;
+        border-color: $color-primary;
+      }
+
+      &::placeholder {
+        color: $color-text-tertiary;
+      }
+    }
+  }
+
+  .error-message {
+    background: #fee;
+    color: #c53030;
+    padding: $space-3;
+    border-radius: $radius-md;
+    margin-bottom: $space-4;
+    font-size: 0.9rem;
+    border: 1px solid #feb2b2;
+  }
+
+  .btn {
+    width: 100%;
+    padding: $space-4;
+    border: none;
+    border-radius: $radius-md;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: $space-4;
+
+    &.btn-primary {
+      background: $color-primary;
+      color: white;
+
+      &:hover:not(:disabled) {
+        background: $color-primary-dark;
+        transform: translateY(-1px);
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .form-footer {
+    text-align: center;
+
+    .forgot-password {
+      color: $color-primary;
+      text-decoration: none;
+      font-size: 0.9rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    p {
+      color: $color-text-secondary;
+      font-size: 0.85rem;
+      margin: 0;
+      line-height: 1.4;
+    }
+  }
+}
+
+.login-page__footer {
+  text-align: center;
+  margin-top: $space-6;
+  padding-top: $space-4;
+  border-top: 1px solid $color-border;
+
+  .btn-link {
+    background: transparent;
+    border: none;
+    color: $color-text-secondary;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: underline;
+
+    &:hover {
+      color: $color-text-primary;
+    }
+  }
+}
+
+// Responsividade
+@media (max-width: 600px) {
+  .login-page {
+    padding: $space-2;
+  }
+
+  .login-page__container {
+    padding: $space-6;
+  }
+
+  .login-page__header h1 {
+    font-size: 1.75rem;
+  }
+
+  .login-page__tabs .tab {
+    padding: $space-2 $space-3;
+    font-size: 0.9rem;
+  }
+}

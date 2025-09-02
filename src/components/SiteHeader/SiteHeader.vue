@@ -22,6 +22,14 @@ const navigateToHome = () => {
   router.push('/');
 };
 
+const navigateToSell = () => {
+  router.push('/login');
+};
+
+const navigateToLogin = () => {
+  router.push('/login');
+};
+
 const showComingSoon = (feature) => {
   modalMessage.value = t(`app.header.comingSoon.${feature}`);
   showComingSoonModal.value = true;
@@ -96,10 +104,10 @@ const closeModal = () => {
         </svg>
       </span>
       <nav class="site-header__actions">
-        <button class="site-header__action site-header__action--link" @click="showComingSoon('login')">
+        <button class="site-header__action site-header__action--link" @click="navigateToLogin">
           {{ t('app.header.actions.login') }}
         </button>
-        <button class="site-header__action site-header__action--primary" @click="showComingSoon('sell')">
+        <button class="site-header__action site-header__action--primary" @click="navigateToSell">
           {{ t('app.header.actions.sell') }}
         </button>
       </nav>

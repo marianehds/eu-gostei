@@ -7,6 +7,8 @@ import products from './products/products.js';
 import breadcrumb from './views/roupas/breadcrumb/breadcrumb.js';
 import roupas from './views/roupas/roupas.js';
 import actions from './views/home/actions.js';
+import auth from './views/auth/auth.js';
+import seller from './views/seller/seller.js';
 
 export default {
   app: {
@@ -18,6 +20,8 @@ export default {
     products,
     breadcrumb,
     roupas,
-    actions
+    actions,
+    auth,
+    seller
   }
 };
